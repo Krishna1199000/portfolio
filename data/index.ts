@@ -96,7 +96,7 @@ export const projects = [
       "vite.svg",
       "vercel.jpg",
     ],
-    link: "www.cranberridiamonds.in",
+    link: "https://cranberri-diamonds.vercel.app/",
   },
 
   {
