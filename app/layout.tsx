@@ -6,9 +6,9 @@ import { ThemeProvider } from "./theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Rishi's Portfolio",
+  title: "Krishna's Portfolio",
   description: "A Modern and Minimalist Portfolio",
-  keywords: ["rishi gupta", "portfolio", "web developer", "react", "nextjs"],
+  keywords: ["Krishna gohil", "portfolio", "web developer", "react", "nextjs"],
 };
 export default function RootLayout({
   children,

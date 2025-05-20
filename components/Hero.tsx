@@ -34,7 +34,7 @@ const Hero = () => {
           />
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl ">
-            Hi, I&apos;m Rishi, A Developer based in Mumbai.
+            Hi, I&apos;m Krishna, A Full Stack Developer based in Mumbai.
           </p>
 
           <a title="Show my work" href="#projects">
