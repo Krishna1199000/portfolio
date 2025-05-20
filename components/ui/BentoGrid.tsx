@@ -1,9 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IoCopyOutline } from "react-icons/io5";
+import dynamic from 'next/dynamic';
 
-// Also install this npm i --save-dev @types/react-lottie
-import Lottie from "react-lottie";
+// Dynamically import Lottie with no SSR
+const Lottie = dynamic(() => import('react-lottie'), { ssr: false });
 
 import { BackgroundGradientAnimation } from "./GradientBg";
 
@@ -56,10 +57,14 @@ export const BentoGridItem = ({
   const rightLists = ["Node/Express.js", "MongoDB,PostgreSQL"];
 
   const [copied, setCopied] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const defaultOptions = {
     loop: copied,
-
     autoplay: copied,
     animationData: animationData,
     rendererSettings: {
@@ -70,9 +75,7 @@ export const BentoGridItem = ({
   const handleCopy = () => {
     const text = "gohilkrishna9004@gmail.com";
     navigator.clipboard.writeText(text);
-
     setCopied(true);
-
     setTimeout(() => {
       setCopied(false);
     }, 6000);
@@ -173,12 +176,8 @@ export const BentoGridItem = ({
           )}
           {id === 6 && (
             <div className="mt-5 relative">
-              <div
-                className={`absolute -bottom-5 right-0 ${
-                  copied ? "block" : "block"
-                }`}
-              >
-                <Lottie options={defaultOptions} height={200} width={400} />
+              <div className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"}`}>
+                {isMounted && <Lottie options={defaultOptions} height={200} width={400} />}
               </div>
 
               <MagicButton
